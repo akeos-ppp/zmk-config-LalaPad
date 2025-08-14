@@ -204,6 +204,40 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        combo_left {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <15 16>;
+        };
+
+        combo_right {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+        };
+
+        l_disp {
+            bindings = <&kp LA(LC(D))>;
+            key-positions = <24 25>;
+        };
+
+        c_disp {
+            bindings = <&kp LA(LC(F))>;
+            key-positions = <26 25>;
+        };
+
+        r_disp {
+            bindings = <&kp LA(LC(G))>;
+            key-positions = <26 27>;
+        };
+
+        f_disp {
+            bindings = <&kp LA(LC(ENTER))>;
+            key-positions = <28 27>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
