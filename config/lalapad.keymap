@@ -180,6 +180,29 @@
         };
     };
 
+    macros {
+        Mission: Mission {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(UP_ARROW)>;
+            label = "MISSION";
+        };
+
+        launchpad: launchpad {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LG(L))>;
+            label = "LAUNCHPAD";
+        };
+
+        capture: capture {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LS(NUMBER_5))>;
+            label = "CAPTURE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -236,11 +259,11 @@
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4   &mkp MB5   &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans      &mo 5      &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK  &mkp MCLK   &mkp RCLK  &mkp MB4  &mo SCROLL_R_LAYER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &Mission   &launchpad  &mkp MB4   &mkp MB5  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans     &trans      &trans     &trans    &trans
+                &trans  &trans  &trans  &trans  &trans    &trans     &trans      &trans
             >;
         };
 
