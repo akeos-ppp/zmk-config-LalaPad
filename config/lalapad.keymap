@@ -250,7 +250,7 @@
 &kp TAB    &kp A         &kp S          &kp D        &kp F                          &kp G                     &kp H                   &kp J                        &kp K            &kp L              &kp MINUS      &kp SEMI
 &kp LSHFT  &kp Z         &kp X          &kp C        &kp V                          &kp B                     &kp N                   &kp M                        &kp COMMA        &kp PERIOD         &mt2 UP SLASH  &kp BSLH
 &kp LCTRL  &kp LEFT_ALT  &kp LA(SPACE)  &lt 2 SPACE  &lt SECONDARY_LAYER BACKSPACE  &lt TERTIARY_LAYER LANG2  &lt SYSTEM_LAYER LANG1  &mt RIGHT_COMMAND RC(SPACE)  &lt 1 ENTER      &kp DOUBLE_QUOTES  &kp EQUAL      &kp ASTRK
-                         &kp UP_ARROW   &kp RIGHT    &kp DOWN_ARROW                 &kp LEFT_ARROW            &allow_pageup           &allow_home                  &allow_pagedown  &allow_end
+                         &kp RIGHT      &kp DOWN     &kp LEFT_ARROW                 &kp UP_ARROW              &allow_pageup           &allow_home                  &allow_pagedown  &allow_end
             >;
         };
 
