@@ -275,6 +275,8 @@
 &trans  &trans   &trans   &trans   &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans
                  &trans   &trans   &trans   &trans   &trans  &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&volume_up_down>, <&volume_up_down>;
         };
 
         SYSTEM_LAYER {
