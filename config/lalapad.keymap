@@ -198,8 +198,15 @@
         capture: capture {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(LS(NUMBER_5))>;
+            bindings = <&kp LG(LS(NUMBER_5)) &kp>;
             label = "CAPTURE";
+        };
+
+        MACRO_LTAP: MACRO_LTAP {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp LCLK>;
+            label = "MACRO_LTAP";
         };
     };
 
@@ -295,11 +302,11 @@
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans      &mo 5      &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &mkp LCLK   &mkp RCLK  &mo 5     &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &Mission  &launchpad  &mkp MB4   &mkp MB5  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans    &trans      &trans     &trans    &trans
-                &trans  &trans  &trans  &trans  &trans    &trans    &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans       &trans      &mo 5      &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &MACRO_LTAP  &mkp LCLK   &mkp RCLK  &mo 5     &mo SCROLL_R_LAYER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &Mission     &launchpad  &mkp MB4   &mkp MB5  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans       &trans      &trans     &trans    &trans
+                &trans  &trans  &trans  &trans  &trans    &trans       &trans      &trans
             >;
         };
 
