@@ -19,6 +19,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // cirque trackpad input&layer control
+
 &glidepoint_listener_R {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
@@ -197,7 +198,7 @@
         capture: capture {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LG(LS(NUMBER_5)) &kp>;
+            bindings = <&kp LG(LS(NUMBER_5))>;
             label = "CAPTURE";
         };
 
@@ -301,11 +302,11 @@
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans      &mo 5      &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &mkp LCLK   &mkp RCLK  &mo 5     &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &Mission  &launchpad  &mkp MB4   &mkp MB5  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans    &trans      &trans     &trans    &trans
-                &trans  &trans  &trans  &trans  &trans    &trans    &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans       &trans      &mo 5      &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &MACRO_LTAP  &mkp LCLK   &mkp RCLK  &mo 5     &mo SCROLL_R_LAYER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &Mission     &launchpad  &mkp MB4   &mkp MB5  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans       &trans      &trans     &trans    &trans
+                &trans  &trans  &trans  &trans  &trans    &trans       &trans      &trans
             >;
         };
 
