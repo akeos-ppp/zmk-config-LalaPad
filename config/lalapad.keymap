@@ -191,7 +191,7 @@
         launchpad: launchpad {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(LG(L))>;
+            bindings = <&kp LG(SPACE)>;
             label = "LAUNCHPAD";
         };
 
