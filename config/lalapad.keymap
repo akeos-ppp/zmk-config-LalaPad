@@ -212,7 +212,7 @@
         lang_change: lang_change {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL &kp LEFT_GUI>;
+            bindings = <&kp LCTRL &kp SPACE>;
             label = "LANG_CHANGE";
         };
     };
