@@ -208,6 +208,13 @@
             bindings = <&mkp LCLK>;
             label = "MACRO_LTAP";
         };
+
+        lang_change: lang_change {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LEFT_GUI>;
+            label = "LANG_CHANGE";
+        };
     };
 
     combos {
@@ -252,11 +259,11 @@
             sensor-bindings = <&scroll_down_up>, <&scroll_up_down>;
 
             bindings = <
-&kp ESC    &kp Q         &kp W                       &kp E        &kp R                          &kp T           &kp Y           &kp U              &kp I            &kp O              &kp P          &kp MINUS
-&kp TAB    &kp A         &kp S                       &kp D        &kp F                          &kp G           &kp H           &kp J              &kp K            &kp L              &kp SEMICOLON  &kp LEFT_PARENTHESIS
-&kp LSHFT  &kp Z         &kp X                       &kp C        &kp V                          &kp B           &kp N           &kp M              &kp COMMA        &kp PERIOD         &kp SLASH      &kp RIGHT_PARENTHESIS
-&kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LA(SPACE)  &lt 2 SPACE  &lt SECONDARY_LAYER BACKSPACE  &kp LANGUAGE_2  &kp LANGUAGE_1  &kp RIGHT_COMMAND  &lt 1 ENTER      &kp DOUBLE_QUOTES  &kp EQUAL      &kp BSLH
-                         &kp RIGHT                   &kp DOWN     &kp LEFT_ARROW                 &kp UP_ARROW    &allow_pageup   &allow_home        &allow_pagedown  &allow_end
+&kp ESC    &kp Q         &kp W                       &kp E        &kp R                          &kp T           &kp Y           &kp U         &kp I            &kp O              &kp P          &kp MINUS
+&kp TAB    &kp A         &kp S                       &kp D        &kp F                          &kp G           &kp H           &kp J         &kp K            &kp L              &kp SEMICOLON  &kp LEFT_PARENTHESIS
+&kp LSHFT  &kp Z         &kp X                       &kp C        &kp V                          &kp B           &kp N           &kp M         &kp COMMA        &kp PERIOD         &kp SLASH      &kp RIGHT_PARENTHESIS
+&kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LA(SPACE)  &lt 2 SPACE  &lt SECONDARY_LAYER BACKSPACE  &kp LANGUAGE_2  &kp LANGUAGE_1  &lang_change  &lt 1 ENTER      &kp DOUBLE_QUOTES  &kp EQUAL      &kp BSLH
+                         &kp RIGHT                   &kp DOWN     &kp LEFT_ARROW                 &kp UP_ARROW    &allow_pageup   &allow_home   &allow_pagedown  &allow_end
             >;
         };
 
