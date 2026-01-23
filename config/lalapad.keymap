@@ -15,6 +15,7 @@
 #define SCROLL_L_LAYER  7
 
 // Mouse Scroll Value
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // ========================================
@@ -71,10 +72,12 @@
     // ========================================
     // BEHAVIORS
     // ========================================
+
     behaviors {
         // ----------------------------------------
         // Toggle Layer Off (for AML exit)
         // ----------------------------------------
+
         tog_off: toggle_layer_off {
             compatible = "zmk,behavior-toggle-layer";
             #binding-cells = <1>;
@@ -85,11 +88,13 @@
         // ----------------------------------------
         // Mod-Tap with AML exit on tap
         // ----------------------------------------
+
         mt_exit_AML: mt_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             label = "MT_EXIT_AML_ON_TAP";
             bindings = <&kp>, <&kp_exit_AML>;
+
             tapping-term-ms = <200>;
             flavor = "balanced";
             quick-tap-ms = <200>;
@@ -98,11 +103,13 @@
         // ----------------------------------------
         // Layer-Tap with AML exit on tap
         // ----------------------------------------
+
         lt_exit_AML: lt_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             label = "LT_EXIT_AML_ON_TAP";
             bindings = <&mo>, <&kp_exit_AML>;
+
             tapping-term-ms = <200>;
             flavor = "balanced";
             quick-tap-ms = <200>;
@@ -111,10 +118,12 @@
         // ----------------------------------------
         // Encoder to Mouse Scroll
         // ----------------------------------------
+
         scroll_up_down: sensor_scroll_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
             tap-ms = <20>;
             label = "SCROLL_UP_DOWN";
         };
@@ -123,6 +132,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
             tap-ms = <20>;
             label = "SCROLL_DOWN_UP";
         };
@@ -131,6 +141,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
             tap-ms = <20>;
             label = "SCROLL_LEFT_RIGHT";
         };
@@ -139,6 +150,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
+
             tap-ms = <20>;
             label = "SCROLL_RIGHT_LEFT";
         };
@@ -147,6 +159,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOLUME_UP>, <&kp C_VOLUME_DOWN>;
+
             tap-ms = <20>;
             label = "VOLUME_UP_DOWN";
         };
@@ -154,10 +167,12 @@
         // ----------------------------------------
         // Mod-Morph behaviors
         // ----------------------------------------
+
         dot_comma: dot_comma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp KP_DOT>, <&kp COMMA>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
             label = "DOT_COMMA";
         };
@@ -166,6 +181,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp PLUS>, <&kp MINUS>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
             label = "PLS_MINUS";
         };
@@ -174,6 +190,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp UP>, <&kp PAGE_UP>;
+
             mods = <(MOD_LCTL|MOD_RCTL)>;
             label = "ALLOW_PAGEUP";
         };
@@ -182,6 +199,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOWN>, <&kp PAGE_DOWN>;
+
             mods = <(MOD_LCTL|MOD_RCTL)>;
             label = "ALLOW_PAGEDOWN";
         };
@@ -190,6 +208,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LEFT>, <&kp HOME>;
+
             mods = <(MOD_LCTL|MOD_RCTL)>;
             label = "ALLOW_HOME";
         };
@@ -198,6 +217,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp END>;
+
             mods = <(MOD_LCTL|MOD_RCTL)>;
             label = "ALLOW_END";
         };
@@ -216,16 +236,18 @@
     // ========================================
     // MACROS FOR AUTO MOUSE LAYER
     // ========================================
+
     macros {
         // ----------------------------------------
         // Exit AML: Turn off both mouse layers
         // ----------------------------------------
+
         exit_AML: exit_AML {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&tog_off MOUSE_R_LAYER>, <&tog_off MOUSE_L_LAYER>;
+            bindings = <&tog_off MOUSE_R_LAYER &tog_off MOUSE_L_LAYER>;
             label = "EXIT_AML";
         };
 
@@ -233,12 +255,13 @@
         // Keypress + Exit AML (for normal keys)
         // Non-mouse key press exits mouse layer
         // ----------------------------------------
+
         kp_exit_AML: kp_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER>, <&exit_AML>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
             label = "KP_EXIT_AML";
         };
 
@@ -246,15 +269,13 @@
         // Mouse key press + Sticky Layer (extends timeout)
         // Click then stay in mouse layer until next non-mouse key
         // ----------------------------------------
+
         mkp_exit_AML_R: mkp_exit_AML_R {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings =
-                <&exit_AML>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&sl MOUSE_R_LAYER>;
+            bindings = <&exit_AML &macro_param_1to1 &mkp MACRO_PLACEHOLDER &sl MOUSE_R_LAYER>;
             label = "MKP_EXIT_AML_R";
         };
 
@@ -263,16 +284,14 @@
             #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
-            bindings =
-                <&exit_AML>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&sl MOUSE_L_LAYER>;
+            bindings = <&exit_AML &macro_param_1to1 &mkp MACRO_PLACEHOLDER &sl MOUSE_L_LAYER>;
             label = "MKP_EXIT_AML_L";
         };
 
         // ----------------------------------------
         // Original macros
         // ----------------------------------------
+
         Mission: Mission {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -312,6 +331,7 @@
     // ========================================
     // COMBOS
     // ========================================
+
     combos {
         compatible = "zmk,combos";
 
@@ -349,6 +369,7 @@
     // ========================================
     // KEYMAP
     // ========================================
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -357,11 +378,11 @@
             sensor-bindings = <&scroll_down_up>, <&scroll_up_down>;
 
             bindings = <
-&kp ESC    &kp Q         &kp W                       &kp E        &kp R                          &kp T           &kp Y           &kp U               &kp I            &kp O                 &kp P                  &kp DOUBLE_QUOTES
-&kp TAB    &kp A         &kp S                       &kp D        &kp F                          &kp G           &kp H           &kp J               &kp K            &kp L                 &kp SEMICOLON          &kp MINUS
-&kp LSHFT  &kp Z         &kp X                       &kp C        &kp V                          &kp B           &kp N           &kp M               &kp COMMA        &kp PERIOD            &kp SLASH              &kp EQUAL
-&kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LA(SPACE)  &lt 2 SPACE  &lt SECONDARY_LAYER BACKSPACE  &kp LANGUAGE_2  &kp LANGUAGE_1  &mt RIGHT_GUI CAPS  &lt 1 ENTER      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH
-                         &kp RIGHT                   &kp DOWN     &kp LEFT_ARROW                 &kp UP_ARROW    &allow_pageup   &allow_home         &allow_pagedown  &allow_end
+&kp ESC    &kp Q         &kp W                       &kp E        &kp R           &kp T           &kp Y           &kp U               &kp I            &kp O                 &kp P                  &kp DOUBLE_QUOTES
+&kp TAB    &kp A         &kp S                       &kp D        &kp F           &kp G           &kp H           &kp J               &kp K            &kp L                 &kp SEMICOLON          &kp MINUS
+&kp LSHFT  &kp Z         &kp X                       &kp C        &kp V           &kp B           &kp N           &kp M               &kp COMMA        &kp PERIOD            &kp SLASH              &kp EQUAL
+&kp LCTRL  &kp LEFT_ALT  &mt LEFT_COMMAND LA(SPACE)  &lt 2 SPACE  &kp BACKSPACE   &kp LANGUAGE_2  &kp LANGUAGE_1  &mt RIGHT_GUI CAPS  &lt 1 ENTER      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH
+                         &kp RIGHT                   &kp DOWN     &kp LEFT_ARROW  &kp UP_ARROW    &allow_pageup   &allow_home         &allow_pagedown  &allow_end
             >;
         };
 
@@ -408,14 +429,15 @@
         // MOUSE_R_LAYER with AML behaviors
         // mkp_exit_AML_R: click + stay in layer (Sticky Layer)
         // ========================================
+
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                  &trans                  &mo SCROLL_R_LAYER      &trans                  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp_exit_AML_R LCLK    &mkp_exit_AML_R LCLK    &mkp_exit_AML_R RCLK    &mo SCROLL_R_LAYER      &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                  &Mission                &launchpad              &mkp_exit_AML_R MB4     &mkp_exit_AML_R MB5
-&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans                  &trans                  &trans                  &trans                  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans                  &trans                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                &trans                &mo SCROLL_R_LAYER    &trans               &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp_exit_AML_R LCLK  &mkp_exit_AML_R LCLK  &mkp_exit_AML_R RCLK  &mo SCROLL_R_LAYER   &mo SCROLL_R_LAYER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                &Mission              &launchpad            &mkp_exit_AML_R MB4  &mkp_exit_AML_R MB5
+&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans                &trans                &trans                &trans               &trans
+                &trans  &trans  &trans  &trans  &trans    &trans                &trans                &trans
             >;
         };
 
@@ -434,14 +456,15 @@
         // MOUSE_L_LAYER with AML behaviors
         // mkp_exit_AML_L: click + stay in layer (Sticky Layer)
         // ========================================
+
         MOUSE_L_LAYER {
             display-name = "mouse_l_layer";
             bindings = <
-&trans              &trans                  &trans                  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&mo SCROLL_L_LAYER  &mkp_exit_AML_L RCLK    &mkp_exit_AML_L MCLK    &mkp_exit_AML_L LCLK    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans              &trans                  &mkp_exit_AML_L MB5     &mkp_exit_AML_L MB4     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans              &trans                  &trans                  &trans                  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                            &trans                  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&mo SCROLL_L_LAYER  &mkp_exit_AML_L RCLK  &mkp_exit_AML_L MCLK  &mkp_exit_AML_L LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &mkp_exit_AML_L MB5   &mkp_exit_AML_L MB4   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                          &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
