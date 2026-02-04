@@ -116,6 +116,30 @@
         };
 
         // ----------------------------------------
+        // Drag (hold) or Click+AML (tap)
+        // ----------------------------------------
+
+        drag_or_click_R: drag_or_click_R {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            label = "DRAG_OR_CLICK_R";
+            bindings = <&mkp>, <&mkp_exit_AML_R>;
+
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
+
+        drag_or_click_L: drag_or_click_L {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            label = "DRAG_OR_CLICK_L";
+            bindings = <&mkp>, <&mkp_exit_AML_L>;
+
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+        };
+
+        // ----------------------------------------
         // Encoder to Mouse Scroll
         // ----------------------------------------
 
@@ -427,17 +451,17 @@
 
         // ========================================
         // MOUSE_R_LAYER with AML behaviors
-        // mkp_exit_AML_R: click + stay in layer (Sticky Layer)
+        // drag_or_click_R: hold for drag, tap for click + Sticky Layer
         // ========================================
 
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                &trans                &mo SCROLL_R_LAYER    &trans               &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp_exit_AML_R LCLK  &mkp_exit_AML_R LCLK  &mkp_exit_AML_R RCLK  &mo SCROLL_R_LAYER   &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                &Mission              &launchpad            &mkp_exit_AML_R MB4  &mkp_exit_AML_R MB5
-&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans                &trans                &trans                &trans               &trans
-                &trans  &trans  &trans  &trans  &trans    &trans                &trans                &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                  &trans                  &mo SCROLL_R_LAYER    &trans               &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &drag_or_click_R LCLK LCLK  &drag_or_click_R LCLK LCLK  &mkp_exit_AML_R RCLK  &mo SCROLL_R_LAYER   &mo SCROLL_R_LAYER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans                  &Mission              &launchpad            &mkp_exit_AML_R MB4  &mkp_exit_AML_R MB5
+&trans  &trans  &trans  &trans  &trans  &trans  &capture  &trans                  &trans                &trans                &trans               &trans
+                &trans  &trans  &trans  &trans  &trans    &trans                  &trans                &trans
             >;
         };
 
@@ -454,17 +478,17 @@
 
         // ========================================
         // MOUSE_L_LAYER with AML behaviors
-        // mkp_exit_AML_L: click + stay in layer (Sticky Layer)
+        // drag_or_click_L: hold for drag, tap for click + Sticky Layer
         // ========================================
 
         MOUSE_L_LAYER {
             display-name = "mouse_l_layer";
             bindings = <
-&trans              &trans                &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&mo SCROLL_L_LAYER  &mkp_exit_AML_L RCLK  &mkp_exit_AML_L MCLK  &mkp_exit_AML_L LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans              &trans                &mkp_exit_AML_L MB5   &mkp_exit_AML_L MB4   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans              &trans                &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                          &trans                &trans                &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &trans                &trans                      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&mo SCROLL_L_LAYER  &mkp_exit_AML_L RCLK  &mkp_exit_AML_L MCLK  &drag_or_click_L LCLK LCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &mkp_exit_AML_L MB5   &mkp_exit_AML_L MB4         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans              &trans                &trans                &trans                      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                          &trans                &trans                      &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
