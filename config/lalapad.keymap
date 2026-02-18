@@ -173,6 +173,43 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        l_p {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <15 16>;
+        };
+
+        r_p {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+        };
+    };
+
+    macros {
+        launch: launch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RG(L)>;
+            label = "LAUNCH";
+        };
+
+        mission: mission {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RC(UP_ARROW)>;
+            label = "MISSION";
+        };
+
+        cap_a: cap_a {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LG(KP_N3))>;
+            label = "CAP_A";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -233,7 +270,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mo SCROLL_R_LAYER
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4   &mkp MB5   &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mission   &launch    &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans
             >;
