@@ -296,7 +296,7 @@
             display-name = "mouse_r_layer";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp LCLK  &mkp RCLK  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &mission   &launch    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &cap_a  &cap_l  &trans     &trans     &trans     &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans
