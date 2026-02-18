@@ -185,6 +185,26 @@
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <16 17>;
         };
+
+        l_disp {
+            bindings = <&kp LA(LC(D))>;
+            key-positions = <24 25>;
+        };
+
+        c_disp {
+            bindings = <&kp LA(LC(F))>;
+            key-positions = <25 26>;
+        };
+
+        r_disp {
+            bindings = <&kp LA(LC(G))>;
+            key-positions = <26 27>;
+        };
+
+        full_disp {
+            bindings = <&kp LA(LC(ENTER))>;
+            key-positions = <28 29>;
+        };
     };
 
     macros {
@@ -248,7 +268,7 @@
 
         TERTIARY_LAYER {
             display-name = "tertiary_layer";
-            sensor-bindings = <&volume_up_down>, <&volume_up_down>;
+            sensor-bindings = <&scroll_left_right>, <&scroll_right_left>;
 
             bindings = <
 &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_NUMBER_7  &kp KP_N8     &kp KP_NUMBER_9       &kp KP_NUMBER_0        &kp TILDE
@@ -275,11 +295,11 @@
         MOUSE_R_LAYER {
             display-name = "mouse_r_layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mo 6
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mission   &launch    &trans     &trans
-&trans  &trans  &trans  &trans  &trans  &cap_a  &cap_l  &trans  &trans     &trans     &trans     &trans
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &mission   &launch    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &cap_a  &cap_l  &trans     &trans     &trans     &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans
             >;
         };
 
